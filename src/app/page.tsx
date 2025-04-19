@@ -44,7 +44,7 @@ export default function Home() {
         </div>
       </nav>
       {/* Hero Section */}
-      <section className="max-w-4xl mx-auto text-center py-16">
+      <section id="features" className="max-w-4xl mx-auto text-center py-16">
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-gray-800"
           initial={{ opacity: 0, y: -20 }}
