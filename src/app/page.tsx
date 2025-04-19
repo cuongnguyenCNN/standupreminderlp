@@ -1,13 +1,48 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <div
       id="__next"
       className="min-h-screen bg-gradient-to-br from-white to-blue-50 p-6"
     >
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="text-xl font-bold text-blue-600">
+            StandUp Reminder+
+          </div>
+          <div className="space-x-6 hidden md:flex">
+            <a href="#features" className="hover:text-blue-600 font-medium">
+              Features
+            </a>
+            <a href="#pricing" className="hover:text-blue-600 font-medium">
+              Pricing
+            </a>
+            <a href="#faq" className="hover:text-blue-600 font-medium">
+              FAQ
+            </a>
+            <a href="#contact" className="hover:text-blue-600 font-medium">
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto text-center py-16">
         <motion.h1
@@ -78,6 +113,149 @@ export default function Home() {
         <button className="bg-blue-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-blue-700 transition">
           Go Pro
         </button>
+      </section>
+      {/* Pricing Section */}
+      <section id="pricing" className="max-w-5xl mx-auto py-20">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+          Choose Your Plan
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Free Plan */}
+          <div className="border rounded-2xl shadow p-8 bg-white flex flex-col items-center text-center">
+            <h3 className="text-xl font-semibold mb-2">Free</h3>
+            <p className="text-4xl font-bold text-blue-600 mb-4">$0</p>
+            <ul className="text-gray-700 space-y-2 mb-6">
+              <li>✔️ Smart Stand-Up Reminders</li>
+              <li>✔️ Gentle Notification Sounds</li>
+              <li>✔️ Stretch Suggestions</li>
+            </ul>
+            <a
+              href="#"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition"
+            >
+              Install Free
+            </a>
+          </div>
+
+          {/* Pro Plan */}
+          <div className="border-2 border-blue-600 rounded-2xl shadow-lg p-8 bg-white flex flex-col items-center text-center">
+            <h3 className="text-xl font-semibold mb-2 text-blue-700">Pro</h3>
+            <p className="text-4xl font-bold text-blue-700 mb-4">$5/mo</p>
+            <ul className="text-gray-700 space-y-2 mb-6">
+              <li>✨ All Free Features</li>
+              <li>✨ Customizable Reminder Intervals</li>
+              <li>✨ Weekly Productivity Stats</li>
+              <li>✨ Dark Mode & Custom Themes</li>
+              <li>✨ Premium Notification Sounds</li>
+            </ul>
+            <a
+              href="#"
+              className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl transition font-medium"
+            >
+              Upgrade to Pro
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="faq" className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            ❓ Frequently Asked Questions
+          </h2>
+          <div className="text-left space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold text-blue-600">
+                How does StandUp Reminder+ work?
+              </h3>
+              <p className="text-gray-700">
+                It sends you gentle stand-up reminders based on a timer or
+                inactivity, helping you move more during work hours.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-blue-600">
+                Is it free?
+              </h3>
+              <p className="text-gray-700">
+                Yes! The core version is free. You can upgrade to Pro for
+                advanced features like custom sounds, weekly stats, and more.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-blue-600">
+                Will it work if I close the browser?
+              </h3>
+              <p className="text-gray-700">
+                No. Chrome Extensions work when your browser is running. Keep
+                your browser open to receive reminders.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-blue-600">
+                How do I get Pro?
+              </h3>
+              <p className="text-gray-700">
+                Just scroll up to the Pricing section and click “Upgrade to
+                Pro”. You’ll be redirected to a secure checkout via Stripe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" className="py-16 bg-white">
+        <div className="max-w-xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            📬 Contact Us
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Have questions, suggestions, or feedback? We’d love to hear from
+            you!
+          </p>
+
+          <form
+            action="https://formspree.io/f/yourFormID" // replace with real endpoint
+            method="POST"
+            className="space-y-4"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows={5}
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg"
+            >
+              Send Message
+            </button>
+          </form>
+
+          <p className="text-sm text-gray-500 mt-4">
+            Or email us directly at{" "}
+            <a
+              href="mailto:standupreminder@gmail.com"
+              className="text-blue-600"
+            >
+              standupreminder@gmail.com
+            </a>
+          </p>
+        </div>
       </section>
 
       {/* Footer */}

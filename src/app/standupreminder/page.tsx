@@ -74,7 +74,49 @@ export default function LandingPage() {
           Go Pro
         </a>
       </section>
+      {/* Pricing Section */}
+      <section className="max-w-5xl mx-auto py-20">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+          Choose Your Plan
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Free Plan */}
+          <div className="border rounded-2xl shadow p-8 bg-white flex flex-col items-center text-center">
+            <h3 className="text-xl font-semibold mb-2">Free</h3>
+            <p className="text-4xl font-bold text-blue-600 mb-4">$0</p>
+            <ul className="text-gray-700 space-y-2 mb-6">
+              <li>✔️ Smart Stand-Up Reminders</li>
+              <li>✔️ Gentle Notification Sounds</li>
+              <li>✔️ Stretch Suggestions</li>
+            </ul>
+            <a
+              href="#"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition"
+            >
+              Install Free
+            </a>
+          </div>
 
+          {/* Pro Plan */}
+          <div className="border-2 border-blue-600 rounded-2xl shadow-lg p-8 bg-white flex flex-col items-center text-center">
+            <h3 className="text-xl font-semibold mb-2 text-blue-700">Pro</h3>
+            <p className="text-4xl font-bold text-blue-700 mb-4">$5/mo</p>
+            <ul className="text-gray-700 space-y-2 mb-6">
+              <li>✨ All Free Features</li>
+              <li>✨ Customizable Reminder Intervals</li>
+              <li>✨ Weekly Productivity Stats</li>
+              <li>✨ Dark Mode & Custom Themes</li>
+              <li>✨ Premium Notification Sounds</li>
+            </ul>
+            <a
+              href="#"
+              className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl transition font-medium"
+            >
+              Upgrade to Pro
+            </a>
+          </div>
+        </div>
+      </section>
       {/* Footer */}
       <footer className="text-center mt-12 text-gray-500 text-sm">
         © {new Date().getFullYear()} Stand Up Reminder+. All rights reserved.
