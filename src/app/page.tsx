@@ -24,9 +24,9 @@ export default function Home() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-xl font-bold text-blue-600">
+          <a href="/" className="text-xl font-bold text-blue-600">
             StandUp Reminder+
-          </div>
+          </a>
           <div className="space-x-6 hidden md:flex">
             <a href="#features" className="hover:text-blue-600 font-medium">
               Features
