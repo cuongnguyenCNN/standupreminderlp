@@ -1,44 +1,43 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 export default function LandingPage() {
+  const features = [
+    { icon: "⏰", title: "Timed Reminders" },
+    { icon: "🧘", title: "Stretch Suggestions" },
+    { icon: "🎵", title: "Custom Sounds" },
+    { icon: "📊", title: "Weekly Stats" },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 p-6">
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto text-center py-16">
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold text-gray-800"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-800">
           Stand Up. Feel Better. Work Smarter.
-        </motion.h1>
+        </h1>
         <p className="mt-4 text-lg text-gray-600">
           A smart Chrome Extension that reminds you to move, stretch, and stay
           healthy while working.
         </p>
         <div className="mt-8">
-          <Button className="text-lg px-6 py-3 rounded-2xl shadow-lg">
+          <a
+            href="#"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg px-6 py-3 rounded-2xl shadow-lg transition"
+          >
             Install Free Extension
-          </Button>
+          </a>
         </div>
       </section>
 
       {/* Features */}
       <section className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-12">
-        {[
-          { icon: "⏰", title: "Timed Reminders" },
-          { icon: "🧘", title: "Stretch Suggestions" },
-          { icon: "🎵", title: "Custom Sounds" },
-          { icon: "📊", title: "Weekly Stats" },
-        ].map((feat, idx) => (
+        {features.map((feat, idx) => (
           <div
             key={idx}
             className="text-center p-6 bg-white rounded-2xl shadow"
           >
             <div className="text-4xl mb-2">{feat.icon}</div>
             <h3 className="text-lg font-semibold text-gray-700">
-              {" "}
               {feat.title}
             </h3>
           </div>
@@ -68,9 +67,12 @@ export default function LandingPage() {
           <li>✨ Fully Customizable Timers</li>
           <li>✨ Premium Sounds</li>
         </ul>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-blue-700 transition">
+        <a
+          href="#"
+          className="inline-block bg-gray-900 hover:bg-black text-white text-lg px-6 py-3 rounded-2xl transition"
+        >
           Go Pro
-        </button>
+        </a>
       </section>
 
       {/* Footer */}
