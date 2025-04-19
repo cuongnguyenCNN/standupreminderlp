@@ -2,7 +2,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
+const faqs = [
+  {
+    question: "How does StandUp Reminder+ work?",
+    answer:
+      "It sends you gentle stand-up reminders based on a timer or inactivity, helping you move more during work hours.",
+  },
+  {
+    question: "Is it free?",
+    answer:
+      "Yes! The core version is free. You can upgrade to Pro for advanced features like custom sounds, weekly stats, and more.",
+  },
+  {
+    question: "Will it work if I close the browser?",
+    answer:
+      "No. Chrome Extensions work when your browser is running. Keep your browser open to receive reminders.",
+  },
+  {
+    question: "How do I get Pro?",
+    answer:
+      "Just scroll up to the Pricing section and click “Upgrade to Pro”. You’ll be redirected to a secure checkout via Stripe.",
+  },
+];
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -13,6 +35,11 @@ export default function Home() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? 0 : index);
+  };
   return (
     <div
       id="__next"
@@ -24,22 +51,22 @@ export default function Home() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <a href="/" className="text-xl font-bold text-blue-600">
+          <Link href="/" className="text-xl font-bold text-blue-600">
             StandUp Reminder+
-          </a>
+          </Link>
           <div className="space-x-6 hidden md:flex">
-            <a href="#features" className="hover:text-blue-600 font-medium">
+            <Link href="#features" className="hover:text-blue-600 font-medium">
               Features
-            </a>
-            <a href="#pricing" className="hover:text-blue-600 font-medium">
+            </Link>
+            <Link href="#pricing" className="hover:text-blue-600 font-medium">
               Pricing
-            </a>
-            <a href="#faq" className="hover:text-blue-600 font-medium">
+            </Link>
+            <Link href="#faq" className="hover:text-blue-600 font-medium">
               FAQ
-            </a>
-            <a href="#contact" className="hover:text-blue-600 font-medium">
+            </Link>
+            <Link href="#contact" className="hover:text-blue-600 font-medium">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -57,12 +84,12 @@ export default function Home() {
           healthy while working.
         </p>
         <div className="mt-8">
-          <a
+          <Link
             href="https://chromewebstore.google.com/detail/stand-up-reminder+/jgaaeeodkgfgdonlmidadghiapmdjcgg?authuser=0&hl=vi"
             className=" text-lg px-6 py-3 rounded-2xl shadow-lg bg-blue-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-blue-700 transition"
           >
             Install Free Extension
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -129,12 +156,12 @@ export default function Home() {
               <li>✔️ Gentle Notification Sounds</li>
               <li>✔️ Stretch Suggestions</li>
             </ul>
-            <a
+            <Link
               href="#"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition"
             >
               Install Free
-            </a>
+            </Link>
           </div>
 
           {/* Pro Plan */}
@@ -148,12 +175,12 @@ export default function Home() {
               <li>✨ Dark Mode & Custom Themes</li>
               <li>✨ Premium Notification Sounds</li>
             </ul>
-            <a
+            <Link
               href="#"
               className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl transition font-medium"
             >
               Upgrade to Pro
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -162,43 +189,24 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
             ❓ Frequently Asked Questions
           </h2>
-          <div className="text-left space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold text-blue-600">
-                How does StandUp Reminder+ work?
-              </h3>
-              <p className="text-gray-700">
-                It sends you gentle stand-up reminders based on a timer or
-                inactivity, helping you move more during work hours.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-blue-600">
-                Is it free?
-              </h3>
-              <p className="text-gray-700">
-                Yes! The core version is free. You can upgrade to Pro for
-                advanced features like custom sounds, weekly stats, and more.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-blue-600">
-                Will it work if I close the browser?
-              </h3>
-              <p className="text-gray-700">
-                No. Chrome Extensions work when your browser is running. Keep
-                your browser open to receive reminders.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-blue-600">
-                How do I get Pro?
-              </h3>
-              <p className="text-gray-700">
-                Just scroll up to the Pricing section and click “Upgrade to
-                Pro”. You’ll be redirected to a secure checkout via Stripe.
-              </p>
-            </div>
+          <div className="text-left space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border border-gray-200 rounded-lg p-4 bg-white shadow"
+              >
+                <button
+                  onClick={() => toggle(index)}
+                  className="w-full text-left text-lg font-semibold text-blue-600 focus:outline-none flex justify-between items-center"
+                >
+                  <span>{faq.question}</span>
+                  <span>{openIndex === index ? "−" : "+"}</span>
+                </button>
+                {openIndex === index && (
+                  <p className="mt-2 text-gray-700">{faq.answer}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -248,16 +256,15 @@ export default function Home() {
 
           <p className="text-sm text-gray-500 mt-4">
             Or email us directly at{" "}
-            <a
+            <Link
               href="mailto:standupreminder@gmail.com"
               className="text-blue-600"
             >
               standupreminder@gmail.com
-            </a>
+            </Link>
           </p>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="text-center mt-12 text-gray-500 text-sm">
         © {new Date().getFullYear()} Stand Up Reminder+. All rights reserved.

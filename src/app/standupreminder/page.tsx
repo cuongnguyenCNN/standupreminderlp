@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function LandingPage() {
@@ -20,12 +21,12 @@ export default function LandingPage() {
           healthy while working.
         </p>
         <div className="mt-8">
-          <a
+          <Link
             href="#"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg px-6 py-3 rounded-2xl shadow-lg transition"
           >
             Install Free Extension
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -67,12 +68,12 @@ export default function LandingPage() {
           <li>✨ Fully Customizable Timers</li>
           <li>✨ Premium Sounds</li>
         </ul>
-        <a
+        <Link
           href="#"
           className="inline-block bg-gray-900 hover:bg-black text-white text-lg px-6 py-3 rounded-2xl transition"
         >
           Go Pro
-        </a>
+        </Link>
       </section>
       {/* Pricing Section */}
       <section className="max-w-5xl mx-auto py-20">
@@ -89,12 +90,12 @@ export default function LandingPage() {
               <li>✔️ Gentle Notification Sounds</li>
               <li>✔️ Stretch Suggestions</li>
             </ul>
-            <a
+            <Link
               href="#"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition"
             >
               Install Free
-            </a>
+            </Link>
           </div>
 
           {/* Pro Plan */}
@@ -108,12 +109,12 @@ export default function LandingPage() {
               <li>✨ Dark Mode & Custom Themes</li>
               <li>✨ Premium Notification Sounds</li>
             </ul>
-            <a
+            <Link
               href="#"
               className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl transition font-medium"
             >
               Upgrade to Pro
-            </a>
+            </Link>
           </div>
         </div>
       </section>
