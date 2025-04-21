@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import ChatWidget from "../components/chatwidget";
 const faqs = [
   {
     question: "How does StandUp Reminder+ work?",
@@ -467,6 +468,7 @@ export default function Home() {
       <footer className="text-center mt-12 text-gray-500 text-sm">
         © {new Date().getFullYear()} Stand Up Reminder+. All rights reserved.
       </footer>
+      <ChatWidget></ChatWidget>
     </div>
   );
 }
