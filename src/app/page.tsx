@@ -240,7 +240,7 @@ export default function Home() {
               <li>✨ Premium Notification Sounds</li>
             </ul>
             <Link
-              href="#"
+              href="https://buymeacoffee.com/cuongnguyen/membership"
               className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl transition font-medium"
             >
               Upgrade to Pro
