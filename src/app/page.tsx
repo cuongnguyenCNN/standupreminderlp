@@ -232,7 +232,7 @@ export default function Home() {
           {/* Pro Plan */}
           <div className="border-2 border-blue-600 rounded-2xl shadow-lg p-8 bg-white flex flex-col items-center text-center">
             <h3 className="text-xl font-semibold mb-2 text-blue-700">Pro</h3>
-            <p className="text-4xl font-bold text-blue-700 mb-4">$5/mo</p>
+            <p className="text-4xl font-bold text-blue-700 mb-4">$9.99/year</p>
             <ul className="text-gray-700 space-y-2 mb-6">
               <li>✨ All Free Features</li>
               <li>✨ Customizable Reminder Intervals</li>
@@ -241,7 +241,7 @@ export default function Home() {
               <li>✨ Premium Notification Sounds</li>
             </ul>
             <Link
-              href="https://buymeacoffee.com/cuongnguyen/membership"
+              href="https://noteflowai.lemonsqueezy.com/buy/da3e0961-ec30-4c8a-9787-f0f8bd25d87b"
               className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl transition font-medium"
             >
               Upgrade to Pro
